@@ -1,2 +1,2 @@
 # Apue-code
-code when I learn apue
+code and practices when I learn apue
