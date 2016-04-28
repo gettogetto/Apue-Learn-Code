@@ -19,7 +19,8 @@ void clrfl(int fd,int flags){
 
 #define BUFFSIZE 8192
 int main(void){
-    setfl(STDOUT_FILENO,O_SYNC);//同步写
+    setfl(STDOUT_FILENO,O_SYNC);//同步写,每次write都要等待数据写入磁盘再返回，而通常write只是将数据
+    //排入队列，实际io则等到以后某个时刻进行
     int n;
     char buf[BUFFSIZE];
     while( (n=read(STDIN_FILENO,buf,BUFFSIZE)) >0){
